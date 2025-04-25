@@ -25,7 +25,6 @@ Animal::Animal ( const Animal &ref )
     std::cout << "Animal Copy Constructor called"
     << std::endl;
     type = ref.type;
-    
 }
 
 Animal &Animal::operator= ( const Animal &ref )
@@ -35,12 +34,6 @@ Animal &Animal::operator= ( const Animal &ref )
     if (this != &ref)
         type = ref.type;
     return (*this);
-}
-
-void Animal::makeSound ( void ) const
-{
-    std::cout << "Animal!!"
-    << std::endl;
 }
 
 
