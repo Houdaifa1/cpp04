@@ -20,7 +20,8 @@ Fixed& Fixed::operator= ( const Fixed &ref )
 {
     std::cout << "Copy assignment operator called"
     << std::endl;
-    fix_value = ref.fix_value;
+    if (this != &ref)
+        fix_value = ref.fix_value;
     return (*this);
 }
 

@@ -3,10 +3,8 @@
 int main(void)
 {
     Fixed a;
-
-    
     Fixed b(a);
-    a.setRawBits(256);
+    a.setRawBits(166);
     Fixed c;
     c = b;
 

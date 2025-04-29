@@ -37,10 +37,10 @@ class Fixed
 
 
         // arithmetic operators
-        Fixed   operator+( const Fixed &ref);
-        Fixed   operator-( const Fixed &ref);
-        Fixed   operator*( const Fixed &ref);
-        Fixed   operator/( const Fixed &ref);
+        Fixed   operator+( const Fixed &ref) const;
+        Fixed   operator-( const Fixed &ref) const;;
+        Fixed   operator*( const Fixed &ref) const;;
+        Fixed   operator/( const Fixed &ref) const;;
 
         //  increment/decrement
         Fixed   &operator++( );

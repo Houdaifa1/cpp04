@@ -19,14 +19,14 @@ Fixed::Fixed (const int fix_value )
 {
     std::cout << "Int constructor called"
     << std::endl;
-    this->fix_value = fix_value * 256; 
+    this->fix_value = (fix_value << fract_bit); 
 }
 
 Fixed::Fixed (const float num )
 {
     std::cout << "Float constructor called"
     << std::endl;
-    this->fix_value = roundf( num * 256); 
+    this->fix_value = roundf( num * (1 << fract_bit)); 
 }
 
 Fixed::Fixed ( const Fixed &ref) 
@@ -40,7 +40,8 @@ Fixed& Fixed::operator= ( const Fixed &ref )
 {
     std::cout << "Copy assignment operator called"
     << std::endl;
-    fix_value = ref.fix_value;
+    if (this != &ref)
+        fix_value = ref.fix_value;
     return (*this);
 }
 
@@ -68,11 +69,12 @@ float Fixed::toFloat ( void ) const
 {
     float num;
 
-    num = fix_value / 256.0;
+    num = fix_value / float (1 << fract_bit);
     return (num);
 }
 
 int Fixed::toInt ( void ) const
 {
-    return (fix_value >> 8 );
+
+    return (fix_value >> fract_bit);
 }
